@@ -1,11 +1,844 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Girls Edit</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+
+:root {
+  --black: #090909;
+  --white: #f7f4ef;
+  --burgundy: #641f2d;
+  --burgundy-dark: #3c111b;
+  --gold: #c9a45c;
+  --cream: #e9e2d6;
+  --grey: #aaa39a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+/* ---------------- NAVIGATION ---------------- */
+
+nav {
+  height: 76px;
+  border-bottom: 1px solid rgba(201,164,92,.35);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+  position: sticky;
+  top: 0;
+  background: rgba(9,9,9,.94);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+}
+
+.logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 27px;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--white);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero {
+  min-height: 88vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 20px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: var(--burgundy);
+  filter: blur(160px);
+  opacity: .35;
+  border-radius: 50%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.small-label {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: var(--gold);
+  font-size: 11px;
+  margin-bottom: 30px;
+}
+
+.hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(70px, 12vw, 180px);
+  line-height: .78;
+  font-weight: 500;
+  letter-spacing: -5px;
+}
+
+.hero h1 em {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: .48em;
+  letter-spacing: 0;
+  margin-top: 28px;
+  color: var(--cream);
+}
+
+.hero-line {
+  width: 90px;
+  height: 1px;
+  background: var(--gold);
+  margin: 40px auto 25px;
+}
+
+.hero p {
+  max-width: 500px;
+  margin: auto;
+  color: var(--grey);
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 18px;
+}
+
+/* ---------------- MARQUEE ---------------- */
+
+.marquee {
+  border-top: 1px solid rgba(201,164,92,.4);
+  border-bottom: 1px solid rgba(201,164,92,.4);
+  padding: 15px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  background: var(--burgundy-dark);
+}
+
+.marquee-inner {
+  display: inline-block;
+  animation: move 20s linear infinite;
+}
+
+.marquee span {
+  margin: 0 35px;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+@keyframes move {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ---------------- SECTION ---------------- */
+
+section {
+  padding: 110px 7vw;
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  border-bottom: 1px solid rgba(247,244,239,.2);
+  padding-bottom: 18px;
+}
+
+.section-heading h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 58px;
+  font-weight: 500;
+}
+
+.section-heading span {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* ---------------- FEATURE ---------------- */
+
+.feature {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.feature-image {
+  min-height: 550px;
+  background:
+    linear-gradient(135deg, rgba(100,31,45,.7), transparent),
+    repeating-linear-gradient(
+      45deg,
+      #171717,
+      #171717 2px,
+      #202020 2px,
+      #202020 5px
+    );
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-image::after {
+  content: "THE GIRLS";
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 90px;
+  color: rgba(255,255,255,.08);
+}
+
+.feature-copy .eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 10px;
+  margin-bottom: 20px;
+}
+
+.feature-copy h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 65px;
+  font-weight: 500;
+  line-height: .95;
+  margin-bottom: 25px;
+}
+
+.feature-copy p {
+  color: var(--grey);
+  line-height: 1.8;
+  max-width: 500px;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 30px;
+  color: var(--white);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 7px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ---------------- CARDS ---------------- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card {
+  border: 1px solid rgba(247,244,239,.15);
+  padding: 15px;
+  transition: .4s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+}
+
+.card-image {
+  height: 280px;
+  margin-bottom: 22px;
+  display: grid;
+  place-items: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 60px;
+  background: var(--burgundy-dark);
+}
+
+.card:nth-child(2) .card-image {
+  background: #25231f;
+}
+
+.card:nth-child(3) .card-image {
+  background: #181818;
+}
+
+.card-category {
+  color: var(--gold);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 32px;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.card p {
+  color: var(--grey);
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* ---------------- CHAOS SECTION ---------------- */
+
+.chaos {
+  background: var(--burgundy-dark);
+  text-align: center;
+  position: relative;
+}
+
+.chaos h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(70px, 10vw, 150px);
+  font-weight: 500;
+  line-height: .8;
+}
+
+.chaos h2 span {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: .4em;
+  font-style: italic;
+  margin-top: 30px;
+  color: var(--gold);
+}
+
+.chaos p {
+  max-width: 550px;
+  margin: 45px auto;
+  color: #c7bdb8;
+  line-height: 1.8;
+}
+
+/* ---------------- QUOTES ---------------- */
+
+.quote {
+  text-align: center;
+  padding: 140px 20px;
+}
+
+.quote-mark {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--gold);
+  font-size: 90px;
+  line-height: .3;
+}
+
+.quote blockquote {
+  max-width: 850px;
+  margin: 30px auto;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(28px, 4vw, 55px);
+  font-style: italic;
+}
+
+.quote cite {
+  color: var(--grey);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* ---------------- FOOTER ---------------- */
+
+footer {
+  border-top: 1px solid rgba(201,164,92,.3);
+  padding: 60px 7vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.footer-logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 42px;
+}
+
+.footer-logo span {
+  color: var(--gold);
+}
+
+footer p {
+  color: var(--grey);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media (max-width: 800px) {
+
+  nav {
+    padding: 0 20px;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-links a {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  section {
+    padding: 80px 20px;
+  }
+
+  .feature {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-image {
+    min-height: 350px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading h2 {
+    font-size: 43px;
+  }
+
+  .feature-copy h3 {
+    font-size: 50px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 25px;
+    align-items: flex-start;
+  }
+}
+</style>
 </head>
 
 <body>
-    <h1>Hello!</h1>
-    <p>Welcome to my website ♡</p>
+
+<!-- NAVIGATION -->
+
+<nav>
+  <div class="logo">THE GIRLS <span>EDIT</span></div>
+
+  <ul class="nav-links">
+    <li><a href="#stories">Stories</a></li>
+    <li><a href="#girls">The Girls</a></li>
+    <li><a href="#chaos">Chaos</a></li>
+    <li><a href="#favorites">Favorites</a></li>
+  </ul>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+  <div class="hero-content">
+
+    <div class="small-label">
+      Issue No. 01 · 2026
+    </div>
+
+    <h1>
+      THE GIRLS
+      <em>EDIT</em>
+    </h1>
+
+    <div class="hero-line"></div>
+
+    <p>
+      A collection of our weirdness, memories,
+      inside jokes, questionable decisions and
+      everything in between.
+    </p>
+
+  </div>
+
+</header>
+
+
+<!-- MARQUEE -->
+
+<div class="marquee">
+
+  <div class="marquee-inner">
+
+    <span>Girls Only</span>
+    <span>Stories</span>
+    <span>Memories</span>
+    <span>Chaos</span>
+    <span>Inside Jokes</span>
+    <span>Girls Only</span>
+    <span>Stories</span>
+    <span>Memories</span>
+    <span>Chaos</span>
+    <span>Inside Jokes</span>
+
+  </div>
+
+</div>
+
+
+<!-- FEATURE -->
+
+<section id="stories">
+
+  <div class="section-heading">
+    <h2>The Main Character</h2>
+    <span>01 / Featured</span>
+  </div>
+
+  <div class="feature">
+
+    <div class="feature-image"></div>
+
+    <div class="feature-copy">
+
+      <div class="eyebrow">
+        The Girls Edit
+      </div>
+
+      <h3>
+        We were never
+        normal.
+      </h3>
+
+      <p>
+        Somewhere between the 3 a.m. conversations,
+        laughing until our stomachs hurt and making
+        plans that absolutely should not have worked,
+        we accidentally created a universe of our own.
+      </p>
+
+      <a href="#chaos" class="read-more">
+        Enter the chaos →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- GIRLS -->
+
+<section id="girls">
+
+  <div class="section-heading">
+    <h2>The Girls</h2>
+    <span>02 / Characters</span>
+  </div>
+
+  <div class="cards">
+
+    <article class="card">
+
+      <div class="card-image">
+        ♡
+      </div>
+
+      <div class="card-category">
+        The Bubbly One
+      </div>
+
+      <h3>
+        The Human Sunshine
+      </h3>
+
+      <p>
+        Somehow has enough energy for everyone.
+        Nobody knows how.
+      </p>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="card-image">
+        ✦
+      </div>
+
+      <div class="card-category">
+        The Classic
+      </div>
+
+      <h3>
+        Since Kindergarten
+      </h3>
+
+      <p>
+        Knows every embarrassing story.
+        Has witnessed everything.
+      </p>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="card-image">
+        ☆
+      </div>
+
+      <div class="card-category">
+        The Wildcard
+      </div>
+
+      <h3>
+        Plot Twist
+      </h3>
+
+      <p>
+        You never know what she's going to say.
+        That's exactly why we keep her.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- CHAOS -->
+
+<section class="chaos" id="chaos">
+
+  <h2>
+    CHAOS
+    <span>but make it beautiful.</span>
+  </h2>
+
+  <p>
+    The screenshots. The voice notes. The random
+    photos. The arguments over absolutely nothing.
+    The jokes nobody else understands.
+    The memories that somehow became legendary.
+  </p>
+
+</section>
+
+
+<!-- FAVORITES -->
+
+<section id="favorites">
+
+  <div class="section-heading">
+    <h2>Our Favorites</h2>
+    <span>03 / Currently Obsessed</span>
+  </div>
+
+  <div class="cards">
+
+    <article class="card">
+
+      <div class="card-image">
+        ♫
+      </div>
+
+      <div class="card-category">
+        Soundtrack
+      </div>
+
+      <h3>
+        Songs We Can't Skip
+      </h3>
+
+      <p>
+        The playlist that somehow knows
+        exactly what mood we're in.
+      </p>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="card-image">
+        ✧
+      </div>
+
+      <div class="card-category">
+        Watch List
+      </div>
+
+      <h3>
+        Movie Night
+      </h3>
+
+      <p>
+        Blankets, snacks and at least
+        one person falling asleep.
+      </p>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="card-image">
+        ♡
+      </div>
+
+      <div class="card-category">
+        Essentials
+      </div>
+
+      <h3>
+        Girl Math
+      </h3>
+
+      <p>
+        If we said it was necessary,
+        then obviously it was necessary.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- QUOTE -->
+
+<section class="quote">
+
+  <div class="quote-mark">“</div>
+
+  <blockquote>
+    We didn't realize we were making
+    memories. We were just being idiots
+    together.
+  </blockquote>
+
+  <cite>
+    The Girls Edit · Issue 01
+  </cite>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer-logo">
+    THE GIRLS <span>EDIT</span>
+  </div>
+
+  <p>
+    Made with questionable decisions & lots of love.
+    © 2026 The Girls Edit
+  </p>
+
+</footer>
+
+
+<script>
+
+/* Smooth little entrance effect */
+
+const elements = document.querySelectorAll(
+  ".card, .feature-copy, .feature-image, .quote"
+);
+
+const observer = new IntersectionObserver(
+  entries => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+
+      }
+
+    });
+
+  },
+  { threshold: 0.15 }
+);
+
+
+elements.forEach(element => {
+
+  element.style.opacity = "0";
+  element.style.transform = "translateY(25px)";
+  element.style.transition = "opacity .8s ease, transform .8s ease";
+
+  observer.observe(element);
+
+});
+
+
+/* Tiny console signature because obviously */
+
+console.log(
+  "THE GIRLS EDIT — a collection of our weirdness ♡"
+);
+
+</script>
+
 </body>
 </html>
+```
