@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>THE WEIRD COLLECTIVE</title>
-  <!-- Google Fonts: Playfair Display for editorial serif titles & Montserrat for sleek sans-serif body -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
@@ -34,7 +33,7 @@
       margin: 0 auto;
     }
 
-    /* --- EDITORIAL HEADER --- */
+    /* --- HEADER --- */
     header {
       text-align: center;
       border-bottom: 2px solid var(--text-color);
@@ -89,25 +88,30 @@
       color: var(--accent-gold);
     }
 
-    /* --- LAYOUT GRID --- */
-    .magazine-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 40px;
-      margin-bottom: 50px;
+    /* --- SECTION HEADERS --- */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 2px;
+      margin: 50px 0 25px 0;
+      padding-top: 20px;
+      border-top: 2px solid var(--text-color);
     }
 
-    /* --- HERO COVER ARTICLE --- */
+    /* --- MAIN FRONT COVER SECTION --- */
     .hero-card {
       position: relative;
       border: 1px solid var(--accent-gold);
       padding: 10px;
       background: #FFFFFF;
+      margin-bottom: 40px;
     }
 
     .hero-image-placeholder {
       width: 100%;
-      height: 480px;
+      height: 520px;
       background-color: #111;
       display: flex;
       flex-direction: column;
@@ -121,18 +125,18 @@
 
     .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: 3rem;
+      font-size: 3.8rem;
       color: var(--accent-gold);
       text-transform: uppercase;
       font-weight: 900;
-      line-height: 1.1;
+      line-height: 1.05;
       margin-bottom: 15px;
     }
 
     .hero-subtitle {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: #EEE;
     }
 
@@ -148,14 +152,58 @@
       color: var(--accent-gold);
     }
 
-    /* --- EVENT SECTION: DAYTIME SLEEPOVER --- */
-    .event-section {
-      background: #FFF;
-      border: 1px solid var(--border-color);
-      padding: 30px;
+    /* --- FRIENDS SECTION --- */
+    .friends-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
     }
 
-    .section-header {
+    .friend-card {
+      background: #FFF;
+      border: 1px solid var(--border-color);
+      padding: 15px;
+      text-align: center;
+    }
+
+    .friend-photo-placeholder {
+      aspect-ratio: 3 / 4;
+      background: #F0F0F0;
+      border: 1px dashed var(--accent-gold);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #888;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .friend-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .friend-role {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-burgundy);
+      font-weight: 600;
+    }
+
+    /* --- DAYTIME SLEEPOVER FEATURE --- */
+    .event-section {
+      background: #FFF;
+      border: 1px solid var(--accent-gold);
+      padding: 35px;
+      margin-top: 30px;
+    }
+
+    .event-tag {
       background-color: var(--accent-burgundy);
       color: #FFF;
       text-transform: uppercase;
@@ -168,7 +216,7 @@
 
     .event-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
+      font-size: 2.8rem;
       font-weight: 900;
       text-transform: uppercase;
       line-height: 1;
@@ -180,12 +228,15 @@
       font-style: italic;
       border-bottom: 1px solid var(--border-color);
       padding-bottom: 15px;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       color: #444;
+      font-size: 1.1rem;
     }
 
-    .event-block {
-      margin-bottom: 20px;
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
     }
 
     .event-block h3 {
@@ -195,7 +246,7 @@
       letter-spacing: 1px;
       border-bottom: 1px solid var(--accent-gold);
       padding-bottom: 3px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .event-block ul {
@@ -205,26 +256,79 @@
 
     .event-block li {
       font-size: 0.9rem;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
       color: #333;
     }
 
-    /* --- GALLERY SECTION --- */
-    .gallery-section {
-      border-top: 2px solid var(--text-color);
-      padding-top: 30px;
-      margin-top: 20px;
+    /* --- HANGOUTS JOURNAL --- */
+    .hangouts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
     }
 
-    .gallery-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+    .hangout-card {
+      background: #FFF;
+      border: 1px solid var(--border-color);
+      padding: 20px;
+    }
+
+    .hangout-photo-placeholder {
+      width: 100%;
+      height: 200px;
+      background: #F0F0F0;
+      border: 1px dashed var(--accent-gold);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #888;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      text-align: center;
-      margin-bottom: 20px;
-      letter-spacing: 2px;
+      margin-bottom: 15px;
     }
 
+    .hangout-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hangout-desc {
+      font-size: 0.88rem;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    /* --- QUOTES SECTION --- */
+    .quotes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .quote-card {
+      background: #FFF;
+      border-left: 3px solid var(--accent-burgundy);
+      padding: 20px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+    }
+
+    .quote-author {
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 10px;
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    /* --- GALLERY SECTION --- */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -249,18 +353,18 @@
       text-align: center;
       border-top: 1px solid var(--border-color);
       padding-top: 20px;
-      margin-top: 40px;
+      margin-top: 60px;
       font-size: 0.8rem;
       color: #777;
       letter-spacing: 1px;
     }
 
     @media (max-width: 900px) {
-      .magazine-grid {
-        grid-template-columns: 1fr;
-      }
       header h1 {
         font-size: 2.8rem;
+      }
+      .hero-title {
+        font-size: 2.5rem;
       }
     }
   </style>
@@ -274,34 +378,75 @@
     <div class="subtitle">A collection of our weirdness & drama</div>
     <nav>
       <a href="#cover">Cover</a>
-      <a href="#event">The Un-Slumber</a>
+      <a href="#team">The Team</a>
+      <a href="#unslumber">The Un-Slumber</a>
+      <a href="#hangouts">Hangouts</a>
+      <a href="#quotes">Overheard</a>
       <a href="#gallery">Gallery</a>
     </nav>
   </header>
 
-  <!-- MAIN MAGAZINE CONTENT -->
-  <div class="magazine-grid">
-    
-    <!-- LEFT: MAIN COVER / FEATURE -->
-    <section id="cover" class="hero-card">
-      <div class="hero-image-placeholder">
-        <div class="hero-title">Issue No. 1:<br>The Inaugural<br>Un-Slumber Party</div>
-        <div class="hero-subtitle">Join us for the daytime sleepover of the year.</div>
-        <div class="hero-meta">
-          <span>AUGUST 17</span>
-          <span>EST. 2026</span>
-        </div>
+  <!-- 1. MAIN FRONT COVER -->
+  <section id="cover" class="hero-card">
+    <div class="hero-image-placeholder">
+      <div class="hero-title">THE WEIRD COLLECTIVE</div>
+      <div class="hero-subtitle">The official archive of memories, drama, and unmatched energy.</div>
+      <div class="hero-meta">
+        <span>ISSUE NO. 1</span>
+        <span>EST. 2026</span>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- RIGHT: EVENT DETAILS -->
-    <section id="event" class="event-section">
-      <div class="section-header">The Un-Slumber: Daytime Sleepover</div>
-      <h2 class="event-title">The Daytime Sleepover</h2>
-      <div class="event-details">
-        Monday, August 17th • Location: My House
-      </div>
+  <!-- 2. FRIENDS SECTION -->
+  <h2 id="team" class="section-title">The Collective</h2>
+  <div class="friends-grid">
+    <div class="friend-card">
+      <div class="friend-photo-placeholder">[ Photo: Mena ]</div>
+      <div class="friend-name">Mena</div>
+      <div class="friend-role">The Visionary</div>
+    </div>
+    <div class="friend-card">
+      <div class="friend-photo-placeholder">[ Photo: Khulood ]</div>
+      <div class="friend-name">Khulood</div>
+      <div class="friend-role">Editorial Staff</div>
+    </div>
+    <div class="friend-card">
+      <div class="friend-photo-placeholder">[ Photo: Mourin ]</div>
+      <div class="friend-name">Mourin</div>
+      <div class="friend-role">Editorial Staff</div>
+    </div>
+    <div class="friend-card">
+      <div class="friend-photo-placeholder">[ Photo: Huda ]</div>
+      <div class="friend-name">Huda</div>
+      <div class="friend-role">Editorial Staff</div>
+    </div>
+    <div class="friend-card">
+      <div class="friend-photo-placeholder">[ Photo: Iffath ]</div>
+      <div class="friend-name">Iffath</div>
+      <div class="friend-role">Editorial Staff</div>
+    </div>
+    <div class="friend-card">
+      <div class="friend-photo-placeholder">[ Photo: Hikmah ]</div>
+      <div class="friend-name">Hikmah</div>
+      <div class="friend-role">Editorial Staff</div>
+    </div>
+    <div class="friend-card">
+      <div class="friend-photo-placeholder">[ Photo: Amal ]</div>
+      <div class="friend-name">Amal</div>
+      <div class="friend-role">Editorial Staff</div>
+    </div>
+  </div>
 
+  <!-- 3. DAYTIME SLEEPOVER SECTION -->
+  <div id="unslumber" class="event-section">
+    <div class="event-tag">Issue Feature Story</div>
+    <h2 class="event-title">The Un-Slumber: Daytime Sleepover</h2>
+    <div class="event-details">
+      Monday, August 17th • Location: My House
+    </div>
+
+    <div class="event-grid">
       <div class="event-block">
         <h3>The Flow</h3>
         <ul>
@@ -324,34 +469,66 @@
       <div class="event-block">
         <h3>Movie Lineup</h3>
         <ul>
-          <li><em>Pending discussion with the group...</em></li>
+          <li><em>Pending group vote...</em></li>
         </ul>
       </div>
 
       <div class="event-block">
         <h3>Soundtrack</h3>
         <ul>
-          <li><em>Playlist loading...</em></li>
+          <li><em>YouTube Playlist Pending...</em></li>
         </ul>
       </div>
-    </section>
-
+    </div>
   </div>
 
-  <!-- GALLERY SECTION -->
-  <section id="gallery" class="gallery-section">
-    <h2 class="gallery-title">Gallery</h2>
-    <div class="gallery-grid">
-      <div class="gallery-item">[ Image Placeholder ]</div>
-      <div class="gallery-item">[ Image Placeholder ]</div>
-      <div class="gallery-item">[ Image Placeholder ]</div>
-      <div class="gallery-item">[ Image Placeholder ]</div>
+  <!-- 4. HANGOUTS JOURNAL -->
+  <h2 id="hangouts" class="section-title">Hangout Archives</h2>
+  <div class="hangouts-grid">
+    <div class="hangout-card">
+      <div class="hangout-photo-placeholder">[ Tram Photo ]</div>
+      <div class="hangout-title">1. The Chaotic Tram Run</div>
+      <div class="hangout-desc">The ultimate messy outing. We completely forgot to tap our cards on the tram and ended up getting a violation notice. Iconic.</div>
     </div>
-  </section>
+
+    <div class="hangout-card">
+      <div class="hangout-photo-placeholder">[ Spider-Man Photo ]</div>
+      <div class="hangout-title">2. Spider-Man & Reunion</div>
+      <div class="hangout-desc">Matching outfits, movie time, and the official reunion hangout when Iffath finally made her grand return from India!</div>
+    </div>
+
+    <div class="hangout-card">
+      <div class="hangout-photo-placeholder">[ Future Photo ]</div>
+      <div class="hangout-title">3. Upcoming Hangout</div>
+      <div class="hangout-desc">Scheduled for next week. Details and memory recaps coming soon!</div>
+    </div>
+  </div>
+
+  <!-- 5. QUOTES SECTION -->
+  <h2 id="quotes" class="section-title">Overheard / Quote Vault</h2>
+  <div class="quotes-grid">
+    <div class="quote-card">
+      "Insert funny quote or absurd statement here."
+      <div class="quote-author">— Quote Collector</div>
+    </div>
+    <div class="quote-card">
+      "Another iconic thing said during a hangout."
+      <div class="quote-author">— The Collective</div>
+    </div>
+  </div>
+
+  <!-- 6. GALLERY SECTION -->
+  <h2 id="gallery" class="section-title">The Gallery</h2>
+  <div class="gallery-grid">
+    <div class="gallery-item">[ Image 1 ]</div>
+    <div class="gallery-item">[ Image 2 ]</div>
+    <div class="gallery-item">[ Image 3 ]</div>
+    <div class="gallery-item">[ Image 4 ]</div>
+  </div>
 
   <!-- FOOTER -->
   <footer>
-    &copy; 2026 THE WEIRD COLLECTIVE. CURATED WITH FRIENDS.
+    &copy; 2026 THE WEIRD COLLECTIVE. ALL RIGHTS RESERVED.
   </footer>
 
 </body>
